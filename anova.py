@@ -1,11 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 # Load data into a pandas DataFrame
-df = pd.read_csv('data/well_data_with_facies.csv')
+df = pd.read_csv('data/training_data.csv')
 df = df.reset_index()
 #print(df.sort_values(by='Facies', ascending=True))
+
+df['DeltaPHI'] = [np.exp(delta) for delta in df['DeltaPHI']]
 
 gb = df.groupby('Facies')
 f_df = [gb.get_group(k) for k in gb.groups]

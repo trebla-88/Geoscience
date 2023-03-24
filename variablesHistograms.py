@@ -5,6 +5,7 @@ import numpy as np
 
 # Load data into a pandas DataFrame
 df = pd.read_csv('data/training_data.csv')
+databis=df.iloc[:,-1]
 df = df.reset_index()
 print(df.sort_values(by='Facies', ascending=True))
 

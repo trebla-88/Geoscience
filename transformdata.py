@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the data into a Pandas DataFrame
-data = pd.read_csv('data/well_data_with_facies.csv')
-databis=data.iloc[:,-1]
+data = pd.read_csv('data/training_data.csv')
+databis=data.iloc[:,0]
 print(databis)
 
 # Select the variables of interest

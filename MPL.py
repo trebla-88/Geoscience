@@ -7,11 +7,12 @@ from sklearn.neural_network import MLPClassifier
 df = pd.read_csv('data/training_data.csv')
 
 #Neural network
+couches = 80
 X = df.iloc[:,4:9].values
 y = df.iloc[:,0].values.astype(int)
-clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(10,), random_state=42, max_iter=10000)
+clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(couches,), random_state=42, max_iter=10000)
 clf.fit(X, y)
-MLPClassifier(alpha=1e-05, hidden_layer_sizes=(10,), random_state=42, solver='lbfgs')
+MLPClassifier(alpha=1e-05, hidden_layer_sizes=(couches,), random_state=42, solver='lbfgs')
 
 #Import well_data
 df_well = pd.read_csv('data/well_data_with_facies.csv')

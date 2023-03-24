@@ -13,7 +13,8 @@ y = data.iloc[:, 0].values.astype(int)
 
 
 # Train the MLPClassifier on the data
-clf = MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42,)
+couches = 80
+clf = MLPClassifier(hidden_layer_sizes=(couches,), max_iter=1000, random_state=42,)
 clf.fit(X, y)
 
 

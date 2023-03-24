@@ -7,14 +7,13 @@ from sklearn.metrics import accuracy_score
 
 # Load the data
 data = pd.read_csv('data/PCA_transformed_data.csv')
-print(data)
 # Split the data into features and target
 X = data.iloc[:, 1:4].values
 y = data.iloc[:, 0].values.astype(int)
 
 
 # Train the MLPClassifier on the data
-clf = MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000)
+clf = MLPClassifier(hidden_layer_sizes=(40,), max_iter=1000,random_state=42)
 clf.fit(X, y)
 
 

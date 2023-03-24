@@ -20,6 +20,3 @@ def density_by_var(var):
     plt.xlabel(var)
     plt.legend([str(k) for k in range(1,10)])
     plt.savefig("figures/variables/" + var + ".png")
-
-for var in ["GR", "ILD_log10", "DeltaPHI", "PHIND", "PE"]:
-    density_by_var(var)

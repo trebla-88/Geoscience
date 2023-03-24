@@ -37,3 +37,5 @@ for k in range(5):
 # Transformer les données en utilisant l'AFD
 #X_lda = lda.transform(X)
 #print(X_lda)
+
+new_data.to_csv('data/LDA_transformed_data.csv',index=False)

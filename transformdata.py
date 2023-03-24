@@ -10,6 +10,7 @@ import seaborn as sns
 data = pd.read_csv('data/training_data.csv')
 well=pd.read_csv('data/well_data_with_facies.csv')
 databis=data.iloc[:,0]
+wellbis=well.iloc[:,-1]
 
 # Select the variables of interest
 X = data[['GR', 'ILD_log10', 'PE', 'DeltaPHI', 'PHIND']]
@@ -38,7 +39,7 @@ plt.show()
 
 #print(X_pca.shape)
 new_data=pd.concat([databis,pd.DataFrame(X_pca)],axis=1)
-well_data=pd.concat([databis,pd.DataFrame(well_pca)],axis=1)
+well_data=pd.concat([wellbis,pd.DataFrame(well_pca)],axis=1)
 well_data.to_csv('data/PCA_transformed_well_data.csv',index=False)
 new_data.to_csv('data/PCA_transformed_data.csv',index=False)
 #print(new_data)

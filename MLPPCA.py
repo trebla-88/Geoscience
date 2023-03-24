@@ -13,7 +13,7 @@ y = data.iloc[:, 0].values.astype(int)
 
 
 # Train the MLPClassifier on the data
-clf = MLPClassifier(hidden_layer_sizes=(40,), max_iter=1000,random_state=42)
+clf = MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42,)
 clf.fit(X, y)
 
 
@@ -25,5 +25,5 @@ new_data = pd.read_csv('data/PCA_transformed_well_data.csv')
 
 # Make predictions on the new data
 predictions = clf.predict(new_data.iloc[:,1:4])
-print(confusion_matrix(new_data.iloc[:,0], predictions))
-print(accuracy_score(new_data.iloc[:,0], predictions))
+#print(confusion_matrix(new_data.iloc[:,0], predictions))
+print("PCA accuracy: " + str(accuracy_score(new_data.iloc[:,0], predictions)))

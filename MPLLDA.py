@@ -10,9 +10,9 @@ df = pd.read_csv('data/LDA_transformed_data.csv')
 from sklearn.neural_network import MLPClassifier
 X = df.iloc[:,1:].values
 y = df.iloc[:,0].values.astype(int)
-clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1, max_iter=10000)
+clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=42, max_iter=10000)
 clf.fit(X, y)
-MLPClassifier(alpha=1e-05, hidden_layer_sizes=(5, 2), random_state=1, solver='lbfgs')
+MLPClassifier(alpha=1e-05, hidden_layer_sizes=(5, 2), random_state=42, solver='lbfgs')
 
 #Import well_data
 df_well = pd.read_csv('data/well_data_with_facies.csv')
@@ -40,5 +40,5 @@ ldafact_well=lda.transform(X)
 #Prediction des données
 y_pred = clf.predict(ldafact_well)
 
-print(confusion_matrix(y, y_pred))
-print(accuracy_score(y, y_pred))
+#print(confusion_matrix(y, y_pred))
+print("LDA accuracy: " + str(accuracy_score(y, y_pred)))

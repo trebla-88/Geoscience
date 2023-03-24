@@ -19,3 +19,12 @@ def density_by_var(var):
     plt.xlabel(var)
     plt.legend([str(k) for k in range(1,10)])
     plt.savefig("figures/variables/" + var + ".png")
+
+def density_by_var_PCA(var):
+    plt.figure()
+    for df in f_df:
+        sns.kdeplot(data=df, x=var, fill=True, cmap="Blues")
+    plt.title("Distribution de la densité en fonction du " + var)
+    plt.xlabel(var)
+    plt.legend([str(k) for k in range(1,10)])
+    plt.savefig("figures/PCA/" + var + ".png")

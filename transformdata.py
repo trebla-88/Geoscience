@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the data into a Pandas DataFrame
-data = pd.read_csv('data/well_data_with_facies.csv')
-databis=data.iloc[:,-1]
+data = pd.read_csv('data/training_data.csv')
+databis=data.iloc[:,0]
 print(databis)
 
 # Select the variables of interest
@@ -32,6 +32,7 @@ X_pca = pca.transform(X)
 
 #print(X_pca.shape)
 new_data=pd.concat([databis,pd.DataFrame(X_pca)],axis=1)
+new_data.to_csv('data/PCA_transformed_data.csv',index=False)
 print(new_data)
 
 # Create a PCA object with all components
